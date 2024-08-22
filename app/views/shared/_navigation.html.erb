@@ -1,46 +1,29 @@
-<nav class="navbar navbar-expand-lg">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
   <div class="container-fluid">
     <a class="navbar-brand" href="<%= root_path %>">MtBnb</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-      <!-- TODO: Implement this search -->
-      <form class="d-flex gap-2" role="search">
-        <label class="form-label">
-          Where
-          <input class="form-control me-2" type="search" placeholder="Search destinations" aria-label="Search destinations">
-        </label>
-        <label class="form-label">
-          Check in
-          <input class="form-control me-2" type="date" aria-label="Check in">
-        </label>
-        <label class="form-label">
-          Check out
-          <input class="form-control me-2" type="date" aria-label="Check out">
-        </label>
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
-
-      <ul class="nav navbar-nav navbar-right">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
         <% if current_user %>
+          <li class="nav-item">
+            <%= link_to 'Create Room', new_room_path, class: 'nav-link' %>
+          </li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
               <span><%= current_user.email %></span>
-              <span class="caret"></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li>
-                <!-- TODO: Implement route '/my/rooms' to display the rooms owned by the user -->
-                <!-- TODO: '/my/rooms' must allow the user to fully manage its rooms -->
-                <%= link_to 'My rooms', '/my/rooms', class: 'dropdown-item' %>
+                <%= link_to 'My rooms', my_rooms_path, class: 'dropdown-item' %>
               </li>
               <li>
-                <!-- TODO: Implement route '/my/reservations' to display the reservations made by the user -->
-                <!-- TODO: '/my/rooms' must allow the user to fully manage its reservations -->
-                <%= link_to 'My reservations', '/my/reservations', class: 'dropdown-item' %>
+                <%= link_to 'My reservations', my_reservations_path, class: 'dropdown-item' %>
               </li>
-              <li class="border-top">
+              <li><hr class="dropdown-divider"></li>
+              <li>
                 <%= button_to destroy_user_session_path, class: 'dropdown-item', method: :delete do %>
                   Sign out
                 <% end %>
@@ -49,10 +32,29 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Sign in', new_user_session_path %>
+            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- Formulaire de recherche -->
+<div class="container">
+  <form class="d-flex gap-2 mb-4" role="search" action="<%= search_rooms_path %>" method="get">
+    <label class="form-label">
+      Where
+      <input class="form-control me-2" type="search" name="query" placeholder="Search destinations" aria-label="Search destinations">
+    </label>
+    <label class="form-label">
+      Check in
+      <input class="form-control me-2" type="date" name="check_in" aria-label="Check in">
+    </label>
+    <label class="form-label">
+      Check out
+      <input class="form-control me-2" type="date" name="check_out" aria-label="Check out">
+    </label>
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form>
+</div>

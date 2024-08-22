@@ -1,20 +1,16 @@
-<h1 class="page-title">Rooms Available for Booking</h1>
+<h1 class="page-title">My Rooms</h1>
 
-<% if @available_rooms.any? %>
+<% if @rooms.any? %>
   <ul class="room-list">
-    <% @available_rooms.each do |room| %>
+    <% @rooms.each do |room| %>
       <li class="room-item">
         <h2 class="room-name"><%= room.name %></h2>
         <p class="room-description"><%= room.description %></p>
         <p class="room-price">Price per night: <%= number_to_currency(room.price_per_night) %></p>
         <p class="room-capacity">Capacity: <%= room.capacity %> guests</p>
-        <p class="room-images">Images: <%= room.images.count %> images</p>
-        <p>
-          <%= link_to 'Book Now', new_booking_path(room_id: room.id), class: 'btn btn-primary' %>
-        </p>
       </li>
     <% end %>
   </ul>
 <% else %>
-  <p class="no-rooms">No rooms available at the moment.</p>
+  <p class="no-rooms">You have no rooms listed.</p>
 <% end %>

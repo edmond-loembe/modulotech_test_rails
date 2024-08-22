@@ -1,4 +1,50 @@
 <h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
 <!-- TODO: Display rooms data: Name, Location, Picture(s), Price per night -->
 <!-- TODO: Allow to reserve the room for various periods of time -->
+
+<h1><%= @room.name %></h1>
+
+<p>
+  <strong>Location:</strong>
+  <%= @room.location %> <!-- Assure-toi que la colonne location existe dans ton modèle -->
+</p>
+
+<p>
+  <strong>Price per night:</strong>
+  <%= number_to_currency(@room.price_per_night) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @room.description %>
+</p>
+
+<!-- Affichage des images -->
+<% if @room.images.present? %>
+  <div class="room-images">
+    <% @room.images.each do |image| %>
+      <%= image_tag image.url, alt: @room.name, class: 'img-fluid' %>
+    <% end %>
+  </div>
+<% else %>
+  <p>No images available.</p>
+<% end %>
+
+<!-- Formulaire de réservation -->
+<h2>Reserve this room</h2>
+
+<%= form_with url: create_booking_path, method: :post, local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :start_date, "Start Date" %>
+    <%= form_date_select :start_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :end_date, "End Date" %>
+    <%= form_date_select :end_date, class: 'form-control' %>
+  </div>
+
+  <%= form.hidden_field :room_id, value: @room.id %>
+
+  <%= form.submit 'Book Now', class: 'btn btn-primary' %>
+<% end %>

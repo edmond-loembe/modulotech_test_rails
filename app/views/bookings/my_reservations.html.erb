@@ -1,0 +1,15 @@
+<h1 class="page-title">My Reservations</h1>
+
+<% if @reservations.any? %>
+  <ul class="reservation-list">
+    <% @reservations.each do |reservation| %>
+      <li class="reservation-item">
+        <p class="reservation-room">Room: <%= reservation.room.name %></p>
+        <p class="reservation-dates">Start Date: <%= reservation.start_date %></p>
+        <p class="reservation-dates">End Date: <%= reservation.end_date %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="no-reservations">You have no reservations.</p>
+<% end %>

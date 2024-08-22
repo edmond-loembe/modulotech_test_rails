@@ -1,0 +1,251 @@
+/* Styles de base pour la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.page-title {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+/* Liste des chambres */
+.room-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+/* Item de chaque chambre */
+.room-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.room-item h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.room-description {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #7f8c8d;
+}
+
+.room-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #e74c3c;
+}
+
+.room-capacity,
+.room-images {
+    font-size: 0.9em;
+    color: #95a5a6;
+    margin-bottom: 5px;
+}
+
+/* Bouton de réservation */
+.btn.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+/* Message d'absence de chambre */
+.no-rooms {
+    text-align: center;
+    font-size: 1.2em;
+    color: #7f8c8d;
+}
+
+
+/* Style général pour la page */
+.page-title {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  /* Style pour la liste des rooms */
+  .room-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .room-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .room-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Style pour le nom de la room */
+  .room-name {
+    font-size: 1.75rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Style pour la description */
+  .room-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Style pour le prix */
+  .room-price {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Style pour la capacité */
+  .room-capacity {
+    font-size: 1rem;
+    color: #777;
+  }
+
+  /* Style pour le message lorsqu'il n'y a pas de rooms */
+  .no-rooms {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #999;
+  }
+
+  /* Style général pour la page */
+.page-title {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  /* Style pour la liste des réservations */
+  .reservation-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .reservation-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .reservation-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Style pour les informations de réservation */
+  .reservation-room {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    }
+
+    /* Style général pour la page */
+.page-title {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  /* Style pour le formulaire de création de chambre */
+  .room-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-label {
+    font-size: 1rem;
+    color: #333;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+    .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    }

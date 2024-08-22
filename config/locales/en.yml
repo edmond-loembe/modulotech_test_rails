@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  bookings:
+    created_successfully: "Booking created successfully."
+
+  notices:
+    booking_created: "Booking created successfully."
+    room_created: "Room was successfully created."
